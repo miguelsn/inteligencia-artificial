@@ -111,9 +111,8 @@ def sparse_vector_dot_product(v1: SparseVector, v2: SparseVector) -> float:
     lineales.
     """
     # Inicio de tu código
-    raise Exception("Aún no implementada")
+    return sum(v1 * v2[i] for i, v1 in v1.items())
     # Fin de tu código
-
 
 ############################################################
 # Problema 3e
@@ -138,6 +137,7 @@ def increment_sparse_vector(
     Esta función será de utilidad más adelante.
     """
     # Inicio de tu código
+
     raise Exception("Aún no implementada")
     # Fin de tu código
 
