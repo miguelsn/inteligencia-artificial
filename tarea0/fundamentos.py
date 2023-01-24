@@ -137,8 +137,9 @@ def increment_sparse_vector(
     Esta función será de utilidad más adelante.
     """
     # Inicio de tu código
-
-    raise Exception("Aún no implementada")
+    keys = set(list(v1.keys()) + list(v2.keys()))
+    for i in keys:
+        v1[i] += scale * v2[i]
     # Fin de tu código
 
 
