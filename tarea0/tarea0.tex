@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage[normalem]{ulem}
+\usepackage{algorithm2e}
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ Tarea 0 - FUNDAMENTOS}
+\author{ Miguel Navarro }
+\date{27 de Enero del 2023}
+
+\begin{document}
+\maketitle	
+
+
+\section{Optimización y probabilidad}
+\subsection{Inciso a}
+Tenemos la función $f\left( \theta \right) =\sum ^{n}_{i=1}w_{i}\left( \theta -x_{i}\right) ^{2}$. Para encontrar el valor de $\theta$ que minimiza $f\left( \theta \right)$ necesitamos calcular la primera derivada:\\
+\begin{center}
+$\begin{aligned}\dfrac{d}{d\theta }\sum ^{n}_{i=1}w_{i}\left( \theta -x_{i}\right) ^{2}\\ \end{aligned}$\\
+$\begin{aligned}\sum ^{n}_{i=1}2w_{i}\theta -2w_{i}x_{i}\end{aligned}$\\
+\end{center}
+Encontramos el punto critico:
+\begin{center}
+$\begin{aligned}\sum ^{n}_{i=1}2w_{i}\theta -2w_{i}x_{i}=0\end{aligned}$\\
+$\begin{aligned}\cdot \\ \sum ^{n}_{i=i}2w_{i}\theta =\sum ^{n}_{i=1}2w_{i}xi\end{aligned}$\\
+$\begin{aligned}\sum ^{n}_{i=1}w_{i}\theta =\sum ^{n}_{i=1}w_{i}x_{i}\end{aligned}$\\
+$\begin{aligned}\theta =\dfrac{\sum ^{n}_{i=1}w_{i}x_{i}}{\sum ^{n}_{i=1}u_{i}}\end{aligned}$
+\end{center}
+Para saber si este punto crítico es un minimo encontramos la segunda derivada:
+\begin{center}
+$\begin{aligned}\dfrac{d}{d\theta }\sum ^{n}_{i=1}2w_{i}\left( \theta -x_{i}\right)\end{aligned}$\\
+$\begin{aligned}\sum ^{n}_{i=1}2w_{i}\end{aligned}$\\
+\end{center}
+Como $w_{i}$ siempre será un número positivo, podemos asegurar que el valor de $\theta$ encontrado es un mínimo. Si existiera la posibilidad de que $w_{i}$ tenga números negativos, no se podría asegurar que este es un minimo.
+\pagebreak
+\subsection{Inciso b}
+En el caso de $g(x)$ podemos asegurar que:
+\begin{center}
+$\forall x\forall s,x\cdot s >0$
+\end{center}
+Ya que el máximo siempre asegurará que el número sea positivo, por lo que \textbf{todos los valores de la sumatoria serán positivos}.\\
+En el caso de $f(x)$ el máximo solo asegura que el resultado de la sumatoria sea positivo por lo que no se puede asegurar que los valores en la sumatoria \textbf{no sean de signo contrario.}\\
+Es por esto que $g\left( x\right)\geq f\left( x\right)$ es verdadera para toda $x$.\\
+\subsection{Inciso c}
+Comenzamos creando una función de recurrencia para resolver el problema:\begin{center}
+\begin{tabular}{ c c }
+ $V(n) = 0$& En caso de que $n = 1$\\ 
+ $V(n) = 0$& En caso de que $n = 2$\\  
+ $V(n) = -a + V(n)$& En caso de que $n = 3$\\
+ $V(n) = 0 + V(n)$& En caso de que $n = 4$\\
+ $V(n) = 0 + V(n)$& En caso de que $n = 5$\\
+ $V(n) = b + V(n)$& En caso de que $n = 6$\\
+\end{tabular}
+\end{center}
+Para conocer la puntuación esperada, calculamos el valor esperado de la función de recurrencia:\begin{center}
+$E[V(n)] = \dfrac{1}{6}\left( -a+V\left( n\right) +V\left( n\right) +V\left( n\right) +b+V\left( n\right) \right)$\\
+$E[V(n)] = \dfrac{1}{6}( -a+b+4V(n) )$
+\end{center}
+\subsection{Inciso d}
+Tenemos $p^{4}\left( 1-p\right) ^{2}$. Para encontrar el valor de $p$ que maximize $L(p)$, encontramos los puntos críticos:\begin{center}
+$p ^{4}\left( 1-p\right) ^{2}=p^{4}-2p^{5}+p^{6}$\\
+$\dfrac{d}{d p }\left( p^{4}-2p ^{5}+p^{6}\right) =4p ^{3}-10p ^{4}+6p ^{5}$\\
+$\begin{aligned}p _{1}=0\\ p _{2}=\dfrac{2}{3}\\ p_{3}=1\end{aligned}$
+\end{center}
+Calculamos la segunda derivada para saber cual es el máximo:
+\begin{center}
+$30p^{4}-40p^{3}+12p ^{2}=0$\\
+$30(0)^{4}-40(0)^{3}+12(0) ^{2}=0$\\
+$30(\dfrac{2}{3})^{4}-40(\dfrac{2}{3})^{3}+12(\dfrac{2}{3}) ^{2}=-\dfrac{16}{27}$\\
+$30(1)^{4}-40(1)^{3}+12(1) ^{2}=2$\\
+\end{center}
+Con este resultado sabemos que $\dfrac{2}{3}$ es el valor de $p$ que maximiza L(p), es decir, para tener la mayor probabilidad de sacar la secuencia $\{S, A, A, A, S, A\}$ se necesita una moneda que tenga $\dfrac{2}{3}$ de probabilidad de que salga águila. \pagebreak
+\subsection{Inciso e}
+Tenemos que $P\left( A| B\right) =\dfrac{P\left( A\cap B\right) }{P\left( B\right) }$ por lo que $P\left( A| B\right) = P\left(B| A\right)$ implica que $P(A) = P(B)$.\\
+Sabemos que $P\left( A\cup B\right) =P\left( A\right) +P\left( B\right) -P\left( A\cap B\right)$ y si $P(A) = P(B)$ tenemos:
+\begin{center}
+$P\left( A\cup B\right) =2P\left( A\right)  -P\left( A\cap B\right)$
+\end{center}
+Por lo tanto $P(A)$ es: \begin{center}
+$P\left( A\right) =\dfrac{P\left( A\cap B\right) +\dfrac{1}{2}}{2}$
+\end{center}
+En caso de que $P(A\cap B) = 0$ tendriamos que $P(A) = \dfrac{1}{4}$, sin embargo, como $P(A\cap B) > 0$ entonces $P(A) > \dfrac{1}{4}$
+\subsection{Inciso f}
+
+\pagebreak
+\section{Complejidad}
+\subsection{Inciso a}
+\subsection{Inciso b}
+Partiendo de la función de recurrencia $V(i, j) = c(i, j) + min \{V(i-1, j), V(i, j-1)\}$ obtenemos una forma de calcular el costo mínimo para llegar al punto $(n, 3n)$. Para evitar calcular el mismo costo dos veces se utiliza una matriz (previamente inicializada con "uninit" en las posiciones correspondientes) que conserva los costos de cada nodo previamente calculado, de forma que el algoritmo queda de la siguiente manera:
+\begin{algorithm}
+\textbf{function V:}\\
+
+\If{i $==$ 0 \textbf{or} j $==$ 0}
+{
+	\textbf{return 0}
+}
+
+\If{grid[i][j] $==$ "uninit"}
+{
+    grid[i][j]=c(i,j) + min $\{V(i-1, j), V(i, j-1)\}$;\\
+}
+	\textbf{return grid[i][j]}
+
+
+\end{algorithm}\\
+Como el algoritmo recorre todos los valores de la cuadricula, es decir, las $n$ filas y las $3n$ columnas, significa que el algoritmo tiene un tiempo de ejecución de \textbf{$O(3n^{2})$}
+\end{document}
+
