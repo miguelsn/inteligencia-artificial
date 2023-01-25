@@ -102,6 +102,8 @@ para cada $w$.
 \pagebreak
 \section{Complejidad}
 \subsection{Inciso a}
+Comenzando desde obtener las formas de ordenar un solo rectangulo en una cuadricula $n * n$ podemos ver que para encontrar estas formas se tiene que recorrer cada vertice ($n^2$) de la cuadricula, en el cual se va a incrementar la longitud (hasta llegar a $n$) y la altura (hasta llegar a $n$) de forma que la complejidad seria $O(n^4)$.\\
+Si se requieren colocar $4$ rectangulos, entonces es necesario hacer este proceso 3 veces más por lo que una aproximación para la complejidad del cálculo de las formas de ordenar rectangulos sería $O(n^{16})$
 \subsection{Inciso b}
 Partiendo de la función de recurrencia $V(i, j) = c(i, j) + min \{V(i-1, j), V(i, j-1)\}$ obtenemos una forma de calcular el costo mínimo para llegar al punto $(n, 3n)$. Para evitar calcular el mismo costo dos veces se utiliza una matriz (previamente inicializada con "uninit" en las posiciones correspondientes) que conserva los costos de cada nodo previamente calculado, de forma que el algoritmo queda de la siguiente manera:
 \begin{algorithm}
