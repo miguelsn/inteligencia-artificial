@@ -91,7 +91,14 @@ $P\left( A\right) =\dfrac{P\left( A\cap B\right) +\dfrac{1}{2}}{2}$
 \end{center}
 En caso de que $P(A\cap B) = 0$ tendriamos que $P(A) = \dfrac{1}{4}$, sin embargo, como $P(A\cap B) > 0$ entonces $P(A) > \dfrac{1}{4}$
 \subsection{Inciso f}
-
+Comenzamos derivando la suma de forma separada:
+\begin{center}
+$\dfrac{\partial }{\partial w}\left( \sum ^{n}_{i=1}\sum ^{n}_{j=1}\left( a_{i}^{T}w-b_{j}^{T}w \right) ^{2}\right)=2\left( _{a_{i}}^{T}-b_{j}^{T}\right) \sum ^{n}_{i=1}\sum ^{n}_{j=1}\left( a_{i}^{T}w-b^{T}jw\right)$\\
+$\dfrac{\partial }{\partial w}\dfrac{\lambda }{2}\left( \sum ^{d}_{k=1}w_{k}^{2}\right) =\dfrac{\lambda }{2}\sum ^{d}_{n=1}2w_{k}$
+\end{center}
+De forma que la gradiente es:
+$\nabla f\left( w\right)=(2\left( _{a_{i}}^{T}-b_{j}^{T}\right) \sum ^{n}_{i=1}\sum ^{n}_{j=1}\left( a_{i}^{T}w-b^{T}jw\right)+\dfrac{\lambda }{2}\sum ^{d}_{n=1}2w_{k})$
+para cada $w$.
 \pagebreak
 \section{Complejidad}
 \subsection{Inciso a}
