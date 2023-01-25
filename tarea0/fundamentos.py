@@ -155,5 +155,20 @@ def find_nonsingleton_words(text: str) -> Set[str]:
     Puede que collections.defaultdict(int) te sea de utilidad.
     """
     # Inicio de tu código
-    raise Exception("Aún no implementada")
+    text = text.split()
+    dic = collections.defaultdict(int)
+    words=set()
+    for i in text:
+        dic[i] += 1
+    for i in dic:
+        if dic[i] > 1:
+            words.add(i)
+    return words
     # Fin de tu código
+test_cases_3f = [
+    {
+        "input": "",
+        "output": {"el", "zorro"},
+    }
+]
+print(find_nonsingleton_words("el veloz zorro marrón salta sobre el zorro perezoso"))
