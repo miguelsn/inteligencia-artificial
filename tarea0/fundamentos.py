@@ -90,10 +90,30 @@ def mutate_sentences(sentence: str) -> List[str]:
                'el gato y el gato', gato y el gato y',]
     """
     # Inicio de tu código
-    raise Exception("Aún no implementada")
+    words = sentence.split()
+    words.pop()
+    pairs = set(zip(words, words[1:]))
+    mutation = [sentence] 
+    for i in pairs:
+        cmutation = i[0]+" "+i[1]
+        last = i[1]
+        wordcount=2
+        for x in range(len(words)+1):
+            for o in pairs:
+                if(wordcount==len(words)+1):
+                    break
+                if(last==o[0]):
+                    cmutation=cmutation+" "+o[1]
+                    last=o[1]
+                    wordcount+=1
+        if cmutation==sentence:
+            break
+        mutation.append(cmutation)
+    return mutation            
+
+
+
     # Fin de tu código
-
-
 ############################################################
 # Problema 3d
 
@@ -165,10 +185,3 @@ def find_nonsingleton_words(text: str) -> Set[str]:
             words.add(i)
     return words
     # Fin de tu código
-test_cases_3f = [
-    {
-        "input": "",
-        "output": {"el", "zorro"},
-    }
-]
-print(find_nonsingleton_words("el veloz zorro marrón salta sobre el zorro perezoso"))
